@@ -2,21 +2,31 @@
 /* IMPORTS */
 import java.awt.*;
 
-public class Transition
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+public class Transition extends Pane
 {
 	private int currentX, currentY, dragX, dragY;
 	private int identity;
-	private int height = 60, width = 15;
-	private Color rectColor = new Color (160, 200, 255);
-	private Color bgColor = new Color (220,220,220);
+	private double height = 60.0, width = 35.0;
+	//private Color rectColor = new Color (160, 200, 255);
+	//private Color bgColor = new Color (220,220,220);
 	
+	/* CONSTRUCTOR */
 	public Transition (int i, int x, int y)
     {
         identity = i;
         currentX = x;
         currentY = y;
+        
+        paintTransition();
     }
 	
+	/* METHODS */
 	public void dragStart(int x, int y)
 	{
 		dragX = x;
@@ -36,21 +46,29 @@ public class Transition
 		currentY = y;
 	}
 	
-	public void paint(Graphics g) 
-	{
-		/* removes the previous place - if there is any */
-		remove(g);
+	public void paintTransition() {
+		Rectangle rect = new Rectangle(width, height);
+		rect.setStroke(Color.BLACK);
+		rect.setFill(Color.WHITE);
 		
-		/* draw shape and set color of the oval */
-		g.setColor(rectColor);
-		g.drawRect(currentX, currentY, height, width);
+		getChildren().addAll(rect);
 	}
 	
-	public void remove(Graphics g)
-	{
-		g.setColor(bgColor);
-	    g.fillRect(currentX, currentY, height, width);
-	}
+//	public void paint(Graphics g) 
+//	{
+//		/* removes the previous place - if there is any */
+//		remove(g);
+//		
+//		/* draw shape and set color of the oval */
+//		g.setColor(rectColor);
+//		g.drawRect(currentX, currentY, height, width);
+//	}
+//	
+//	public void remove(Graphics g)
+//	{
+//		g.setColor(bgColor);
+//	    g.fillRect(currentX, currentY, height, width);
+//	}
 	
 	public int getIdentity()
 	{
@@ -77,4 +95,9 @@ public class Transition
     {
     	/* WIP */
     }
+
+	public void setOnAction(EventHandler<ActionEvent> handler4) {
+		// TODO Auto-generated method stub
+		
+	}
 }
