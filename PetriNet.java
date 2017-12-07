@@ -29,11 +29,30 @@ public class PetriNet extends Application{
 		Button delButton = new Button("Delete");
 		pane.add(delButton, 5, 1);
 		
+		//create place button and set properties
+		Place placeButton = new Place(0, 0, 0);
+		pane.add(placeButton, 1, 2);
+		
+		//create transition button and set properties
+		Transition transButton = new Transition(0, 0, 0);
+		pane.add(transButton, 2, 2);
+		
+		//drag test
+		
+		
+		
 		//create handlers for the buttons
 		RunHandlerClass handler1 = new RunHandlerClass();
 		runButton.setOnAction((EventHandler<ActionEvent>) handler1);
+		
 		DelHandlerClass handler2 = new DelHandlerClass();
 		delButton.setOnAction(handler2);
+		
+		PlaceHandlerClass handler3 = new PlaceHandlerClass();
+		placeButton.setOnAction((EventHandler<ActionEvent>) handler3);
+		
+		TransitionHandlerClass handler4 = new TransitionHandlerClass();
+		transButton.setOnAction((EventHandler<ActionEvent>) handler4);
 		
 		//define scene params
 		Scene scene = new Scene(pane, 400, 300);
@@ -53,6 +72,22 @@ public class PetriNet extends Application{
 		public void handle(ActionEvent e) {
 			//this is just temp code
 			System.out.println("Delete Clicked");
+		}
+	}
+	
+	//currently broken
+	class PlaceHandlerClass implements EventHandler<ActionEvent> {
+		public void handle(ActionEvent e) {
+			//this is just temp code
+			System.out.println("Place Clicked");
+		}
+	}
+	
+	//currently broken
+	class TransitionHandlerClass implements EventHandler<ActionEvent> {
+		public void handle(ActionEvent e) {
+			//this is just temp code
+			System.out.println("Transition Clicked");
 		}
 	}
 	
