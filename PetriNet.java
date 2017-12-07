@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 public class PetriNet extends Application{
 	
@@ -31,15 +32,11 @@ public class PetriNet extends Application{
 		
 		//create place button and set properties
 		Place placeButton = new Place(0, 0, 0);
-		pane.add(placeButton, 1, 2);
+		pane.add(placeButton, 0, 2);
 		
 		//create transition button and set properties
 		Transition transButton = new Transition(0, 0, 0);
 		pane.add(transButton, 2, 2);
-		
-		//drag test
-		
-		
 		
 		//create handlers for the buttons
 		RunHandlerClass handler1 = new RunHandlerClass();
@@ -48,13 +45,27 @@ public class PetriNet extends Application{
 		DelHandlerClass handler2 = new DelHandlerClass();
 		delButton.setOnAction(handler2);
 		
-		PlaceHandlerClass handler3 = new PlaceHandlerClass();
-		placeButton.setOnAction((EventHandler<ActionEvent>) handler3);
+		//make Place button clickable
+        placeButton.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent t) {
+            	//temp code
+            	System.out.println("Place Clicked");
+            }
+        });
+        
+		//make Transition button clickable
+        transButton.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent t) {
+            	//temp code
+            	System.out.println("Transition Clicked");
+            }
+        });
 		
-		TransitionHandlerClass handler4 = new TransitionHandlerClass();
-		transButton.setOnAction((EventHandler<ActionEvent>) handler4);
-		
-		//define scene params
+		//define scene parameters
 		Scene scene = new Scene(pane, 400, 300);
 		primaryStage.setTitle("Petri Net Simulation");
 		primaryStage.setScene(scene);
@@ -75,21 +86,6 @@ public class PetriNet extends Application{
 		}
 	}
 	
-	//currently broken
-	class PlaceHandlerClass implements EventHandler<ActionEvent> {
-		public void handle(ActionEvent e) {
-			//this is just temp code
-			System.out.println("Place Clicked");
-		}
-	}
-	
-	//currently broken
-	class TransitionHandlerClass implements EventHandler<ActionEvent> {
-		public void handle(ActionEvent e) {
-			//this is just temp code
-			System.out.println("Transition Clicked");
-		}
-	}
 	
 	/**
 	 * @param args

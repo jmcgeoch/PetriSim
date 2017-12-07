@@ -1,12 +1,6 @@
-
-/* IMPORTS */
-import java.awt.*;
-
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
+import javafx.scene.layout.Pane;
 
 public class Place extends Pane
 {
@@ -116,10 +110,6 @@ public class Place extends Pane
 	{
 		return tokenCount;
 	}
-
-	public void setOnAction(EventHandler<ActionEvent> handler3) {
-		// TODO Auto-generated method stub
-		fireEvent(new ActionEvent());
-	}
+	
 
 }

@@ -95,9 +95,5 @@ public class Transition extends Pane
     {
     	/* WIP */
     }
-
-	public void setOnAction(EventHandler<ActionEvent> handler4) {
-		// TODO Auto-generated method stub
-		
-	}
+    
 }
