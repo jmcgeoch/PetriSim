@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox>
+         <children>
+            <GridPane alignment="TOP_CENTER" hgap="10" vgap="10" VBox.vgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Circle fill="WHITE" onMousePressed="#duplicatePlace" onMouseReleased="#putNewPlace" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" stroke="BLACK" strokeType="INSIDE" width="35.0" GridPane.columnIndex="1" />
+                  <Line endX="25.0" startX="-25.0" GridPane.columnIndex="2" />
+                  <Circle radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" />
+                  <ToggleButton mnemonicParsing="false" onMouseClicked="#runClicked" text="Run" GridPane.columnIndex="4">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Group" />
+                     </toggleGroup></ToggleButton>
+                  <ToggleButton mnemonicParsing="false" onMouseClicked="#delClicked" text="Delete" toggleGroup="$Group" GridPane.columnIndex="5" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</Pane>
